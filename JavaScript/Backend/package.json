@@ -1,0 +1,19 @@
+{
+  "name": "biblioteca-semantica-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "BFF Next.js/Node.js: consultas SPARQL 1.1 sobre o grafo RDF gerado a partir dos JSON",
+  "scripts": {
+    "dev": "next dev -p 3001",
+    "build": "next build",
+    "start": "next start -p 3001"
+  },
+  "dependencies": {
+    "next": "^15.5.0",
+    "oxigraph": "^0.4.11",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
+}
+

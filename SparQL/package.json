@@ -1,0 +1,11 @@
+{
+  "name": "biblioteca-semantica-sparql",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Camada semântica (RDF/SPARQL 1.1) da Biblioteca Digital Semântica — Grupo 9",
+  "scripts": {
+    "build:ttl": "node scripts/build-ttl.mjs"
+  }
+}
+

@@ -1,0 +1,11 @@
+# Exemplo didático: ASK — existe algum livro de Terror Gótico com audiobook?
+
+PREFIX schema: <https://schema.org/>
+
+ASK {
+  ?book a schema:Book ;
+        schema:genre <https://biblioteca.grupo9.example/resource/genre/terror-gotico> ;
+        schema:audio ?audio .
+  ?audio a schema:AudioObject .
+}
+

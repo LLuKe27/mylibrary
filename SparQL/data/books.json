@@ -1,0 +1,195 @@
+[
+  {
+    "id": "dom-casmurro",
+    "title": "Dom Casmurro",
+    "authorId": "machado-de-assis",
+    "genreId": "realismo",
+    "year": 1899,
+    "pages": 256,
+    "durationSeconds": 120,
+    "synopsis": "Bento Santiago, já maduro e solitário, revisita a juventude para tentar unir as pontas da vida. Narra o amor por Capitu, a amizade com Escobar e a dúvida que corrói tudo: teria sido traído? Um narrador pouco confiável conduz o leitor por um dos maiores enigmas da literatura brasileira.",
+    "cover": { "palette": ["#1d2a44", "#e9b44c", "#f5efe0"], "motif": "eyes" },
+    "excerpt": [
+      "Uma noite destas, vindo da cidade para o Engenho Novo, encontrei no trem da Central um rapaz aqui do bairro, que eu conheço de vista e de chapéu. Cumprimentou-me, sentou-se ao pé de mim, falou da lua e dos ministros, e acabou recitando-me versos.",
+      "[Texto adaptado para demonstração] Cochilei, e o rapaz, ofendido, passou a me chamar de Dom Casmurro. O apelido pegou entre os vizinhos, e eu, que vivo só, acabei por aceitá-lo como quem aceita uma bengala: sem gosto, mas com utilidade.",
+      "[Texto adaptado para demonstração] Decidi então escrever estas memórias. O meu fim evidente era atar as duas pontas da vida, e restaurar na velhice a adolescência. Mas, como se verá, nem tudo o que se restaura volta a ser o que era."
+    ]
+  },
+  {
+    "id": "memorias-postumas",
+    "title": "Memórias Póstumas de Brás Cubas",
+    "authorId": "machado-de-assis",
+    "genreId": "realismo",
+    "year": 1881,
+    "pages": 224,
+    "durationSeconds": 110,
+    "synopsis": "Um defunto autor decide contar a própria vida depois de morto. Com ironia e pessimismo, Brás Cubas expõe a vaidade, as ambições frustradas e os amores mal resolvidos da elite carioca do século XIX, inaugurando o Realismo no Brasil.",
+    "cover": { "palette": ["#2b2b2b", "#c94f4f", "#f2f2f2"], "motif": "circles" },
+    "excerpt": [
+      "Ao verme que primeiro roeu as frias carnes do meu cadáver dedico como saudosa lembrança estas memórias póstumas.",
+      "[Texto adaptado para demonstração] Algum tempo hesitei se devia abrir estas memórias pelo princípio ou pelo fim, isto é, se poria em primeiro lugar o meu nascimento ou a minha morte. Escolhi a morte: é mais galante e mais novo.",
+      "[Texto adaptado para demonstração] Não sou propriamente um autor defunto, mas um defunto autor. Livre das conveniências dos vivos, posso enfim falar com franqueza — e a franqueza, convenhamos, é a primeira virtude de um morto."
+    ]
+  },
+  {
+    "id": "iracema",
+    "title": "Iracema",
+    "authorId": "jose-de-alencar",
+    "genreId": "romantismo",
+    "year": 1865,
+    "pages": 128,
+    "durationSeconds": 100,
+    "synopsis": "A virgem dos lábios de mel, guardiã do segredo da jurema, apaixona-se pelo guerreiro português Martim. Lenda poética sobre a origem do Ceará, o romance simboliza o encontro — e o conflito — entre o nativo e o colonizador.",
+    "cover": { "palette": ["#0f5257", "#f2a65a", "#fff7e8"], "motif": "leaves" },
+    "excerpt": [
+      "Verdes mares bravios de minha terra natal, onde canta a jandaia nas frondes da carnaúba.",
+      "[Texto adaptado para demonstração] Além, muito além daquela serra que ainda azula no horizonte, nasceu Iracema, a virgem dos lábios de mel, que tinha os cabelos mais negros que a asa da graúna.",
+      "[Texto adaptado para demonstração] Certo dia, à beira da mata, um estrangeiro surgiu entre as folhas. Iracema ergueu o arco; mas a flecha, ao invés de ferir, apenas roçou-lhe o rosto. Começava ali uma história que mudaria a terra para sempre."
+    ]
+  },
+  {
+    "id": "o-guarani",
+    "title": "O Guarani",
+    "authorId": "jose-de-alencar",
+    "genreId": "romantismo",
+    "year": 1857,
+    "pages": 352,
+    "durationSeconds": 130,
+    "synopsis": "No século XVII, às margens do Paquequer, o indígena Peri dedica sua lealdade a Cecília, filha do fidalgo D. Antônio de Mariz. Entre ataques, traições e uma natureza grandiosa, o romance constrói um mito de fundação nacional.",
+    "cover": { "palette": ["#203a2b", "#d9c26b", "#f4f1e6"], "motif": "waves" },
+    "excerpt": [
+      "[Texto adaptado para demonstração] De um dos cabeços da Serra dos Órgãos desliza um fio de água que se dirige para o norte e, engrossado pelos mananciais, forma o Paquequer.",
+      "[Texto adaptado para demonstração] Na margem do rio erguia-se a casa de D. Antônio de Mariz, fortaleza e lar ao mesmo tempo. Ali vivia Cecília, cuja alegria iluminava os salões e as matas ao redor.",
+      "[Texto adaptado para demonstração] E nas sombras da floresta, atento a cada passo da jovem, estava Peri — silencioso, ágil, fiel como o próprio rio que corria sem nunca abandonar o seu leito."
+    ]
+  },
+  {
+    "id": "o-cortico",
+    "title": "O Cortiço",
+    "authorId": "aluisio-azevedo",
+    "genreId": "naturalismo",
+    "year": 1890,
+    "pages": 288,
+    "durationSeconds": 115,
+    "synopsis": "João Romão acumula riqueza explorando os moradores do cortiço que construiu no Rio de Janeiro. Em um ambiente coletivo e pulsante, os personagens são moldados pelo meio, num retrato cru das desigualdades do Brasil oitocentista.",
+    "cover": { "palette": ["#3d2c2e", "#e07a5f", "#f4f1de"], "motif": "grid" },
+    "excerpt": [
+      "[Texto adaptado para demonstração] João Romão foi, dos treze aos vinte e cinco anos, empregado de um vendeiro que enriqueceu entre as quatro paredes de uma suja e obscura taverna.",
+      "[Texto adaptado para demonstração] Quando o patrão se retirou para a terra, deixou-lhe a venda e uma pequena quantia. João Romão não descansou: comprou terrenos, ergueu casinhas, e o cortiço começou a crescer como coisa viva.",
+      "[Texto adaptado para demonstração] De manhã, o pátio acordava em rumor: lavadeiras, cantigas, discussões, cheiro de café e sabão. Era um mundo inteiro fervilhando entre tinas e varais."
+    ]
+  },
+  {
+    "id": "policarpo-quaresma",
+    "title": "Triste Fim de Policarpo Quaresma",
+    "authorId": "lima-barreto",
+    "genreId": "realismo",
+    "year": 1915,
+    "pages": 240,
+    "durationSeconds": 105,
+    "synopsis": "O major Policarpo Quaresma ama o Brasil com fervor ingênuo: estuda tupi, defende a agricultura nacional e apoia o governo. Seu idealismo, porém, choca-se com a burocracia e a violência da Primeira República.",
+    "cover": { "palette": ["#14213d", "#2a9d8f", "#fefae0"], "motif": "lines" },
+    "excerpt": [
+      "[Texto adaptado para demonstração] Como de hábito, Policarpo Quaresma, mais conhecido por Major Quaresma, bateu em casa às quatro e quinze da tarde. Havia mais de vinte anos que isso acontecia.",
+      "[Texto adaptado para demonstração] Os vizinhos regulavam os relógios pela sua chegada. Era um homem metódico, de livros e de pátria, que lia sobre o Brasil como quem lê cartas de amor.",
+      "[Texto adaptado para demonstração] Um dia, convencido de que o tupi era a verdadeira língua nacional, redigiu um requerimento ao Congresso. Foi o começo de seus tristes e generosos fracassos."
+    ]
+  },
+  {
+    "id": "orgulho-e-preconceito",
+    "title": "Orgulho e Preconceito",
+    "authorId": "jane-austen",
+    "genreId": "romance-de-costumes",
+    "year": 1813,
+    "pages": 424,
+    "durationSeconds": 125,
+    "synopsis": "Elizabeth Bennet, espirituosa e independente, conhece o reservado Sr. Darcy. Entre bailes, cartas e mal-entendidos, ambos precisam superar o orgulho e os preconceitos para enxergar quem o outro realmente é.",
+    "cover": { "palette": ["#f1e3d3", "#8e5572", "#2d1e2f"], "motif": "flowers" },
+    "excerpt": [
+      "[Texto adaptado para demonstração] É uma verdade universalmente reconhecida que um homem solteiro, possuidor de uma boa fortuna, deve estar necessitado de uma esposa.",
+      "[Texto adaptado para demonstração] Quando Netherfield Park foi finalmente alugado, a Sra. Bennet mal pôde conter a alegria: o novo vizinho era jovem, rico e, segundo diziam, encantador.",
+      "[Texto adaptado para demonstração] No baile, porém, foi o amigo dele, o Sr. Darcy, quem atraiu todos os olhares — e logo depois todas as antipatias, ao declarar que Elizabeth era apenas tolerável."
+    ]
+  },
+  {
+    "id": "frankenstein",
+    "title": "Frankenstein",
+    "authorId": "mary-shelley",
+    "genreId": "terror-gotico",
+    "year": 1818,
+    "pages": 280,
+    "durationSeconds": 120,
+    "synopsis": "Victor Frankenstein desafia os limites da ciência e dá vida a uma criatura. Rejeitado por seu criador e pela sociedade, o ser busca compreensão e vingança, numa reflexão sobre responsabilidade, solidão e humanidade.",
+    "cover": { "palette": ["#0b132b", "#5bc0be", "#e0fbfc"], "motif": "bolt" },
+    "excerpt": [
+      "[Texto adaptado para demonstração] Foi numa lúgubre noite de novembro que contemplei a realização dos meus esforços. Com uma ansiedade quase agonizante, reuni os instrumentos da vida à minha volta.",
+      "[Texto adaptado para demonstração] A chuva batia sombriamente nas vidraças, e a vela já quase se apagava, quando vi abrir-se o olho amarelo e opaco da criatura.",
+      "[Texto adaptado para demonstração] Eu havia desejado aquilo com um ardor que excedia a moderação; mas agora que estava terminado, a beleza do sonho desvanecia-se, e um horror sem fôlego enchia o meu coração."
+    ]
+  },
+  {
+    "id": "a-maquina-do-tempo",
+    "title": "A Máquina do Tempo",
+    "authorId": "hg-wells",
+    "genreId": "ficcao-cientifica",
+    "year": 1895,
+    "pages": 160,
+    "durationSeconds": 95,
+    "synopsis": "Um inventor vitoriano constrói uma máquina capaz de viajar pelo tempo e chega ao ano 802.701. Lá encontra os delicados Elóis e os sombrios Morlocks, herdeiros de uma humanidade dividida.",
+    "cover": { "palette": ["#22223b", "#f2e94e", "#f8f9fa"], "motif": "clock" },
+    "excerpt": [
+      "[Texto adaptado para demonstração] O Viajante do Tempo — pois assim convém chamá-lo — expunha-nos uma questão complicada. Seus olhos cinzentos brilhavam, e o rosto, habitualmente pálido, estava corado e animado.",
+      "[Texto adaptado para demonstração] — Vocês precisam acompanhar o meu raciocínio — disse ele. — Toda substância real tem quatro dimensões: comprimento, largura, espessura... e duração.",
+      "[Texto adaptado para demonstração] Sobre a mesa repousava um pequeno mecanismo de metal reluzente e marfim. Ele tocou uma alavanca, e a máquina simplesmente desapareceu diante dos nossos olhos."
+    ]
+  },
+  {
+    "id": "o-cao-dos-baskervilles",
+    "title": "O Cão dos Baskervilles",
+    "authorId": "arthur-conan-doyle",
+    "genreId": "misterio",
+    "year": 1902,
+    "pages": 256,
+    "durationSeconds": 110,
+    "synopsis": "Uma lenda amaldiçoa a família Baskerville: um cão infernal que assombra os pântanos de Dartmoor. Sherlock Holmes e Dr. Watson investigam a misteriosa morte de Sir Charles e protegem o jovem herdeiro.",
+    "cover": { "palette": ["#1b1b1e", "#d8973c", "#f7f7ff"], "motif": "moon" },
+    "excerpt": [
+      "[Texto adaptado para demonstração] O Sr. Sherlock Holmes, que costumava acordar muito tarde, estava sentado à mesa do café quando examinei a bengala esquecida pelo visitante da noite anterior.",
+      "[Texto adaptado para demonstração] — Então, Watson, o que conclui disso? — perguntou ele, sem se virar. — Você parece ter olhos na nuca! — Tenho, ao menos, um bule de café polido diante de mim.",
+      "[Texto adaptado para demonstração] Naquela manhã, o Dr. Mortimer nos trouxe um antigo manuscrito e uma notícia perturbadora: junto ao corpo de Sir Charles, havia pegadas de um cão gigantesco."
+    ]
+  },
+  {
+    "id": "o-corvo",
+    "title": "O Corvo e Outros Contos",
+    "authorId": "edgar-allan-poe",
+    "genreId": "terror-gotico",
+    "year": 1845,
+    "pages": 144,
+    "durationSeconds": 90,
+    "synopsis": "Numa meia-noite sombria, um homem enlutado recebe a visita de um corvo que responde a todas as perguntas com uma só palavra: nunca mais. Reunião de poemas e contos que definiram o horror psicológico moderno.",
+    "cover": { "palette": ["#0d0d0d", "#9d0208", "#e5e5e5"], "motif": "feather" },
+    "excerpt": [
+      "[Texto adaptado para demonstração] Numa meia-noite sombria, enquanto eu meditava, fraco e cansado, sobre volumes estranhos de saberes esquecidos, ouvi alguém batendo de leve à minha porta.",
+      "[Texto adaptado para demonstração] Abri a janela, e com grande alvoroço de asas entrou um corvo imponente, dos santos dias de outrora. Pousou sobre o busto de Palas, logo acima da porta.",
+      "[Texto adaptado para demonstração] — Dize-me o teu nome — supliquei. E o corvo, com voz grave e definitiva, respondeu apenas: — Nunca mais."
+    ]
+  },
+  {
+    "id": "vinte-mil-leguas",
+    "title": "Vinte Mil Léguas Submarinas",
+    "authorId": "julio-verne",
+    "genreId": "aventura",
+    "year": 1870,
+    "pages": 448,
+    "durationSeconds": 135,
+    "synopsis": "O professor Aronnax é capturado pelo enigmático Capitão Nemo e embarca no Nautilus, um submarino à frente de seu tempo. Juntos percorrem os oceanos do mundo, entre maravilhas, perigos e segredos.",
+    "cover": { "palette": ["#023e8a", "#90e0ef", "#caf0f8"], "motif": "bubbles" },
+    "excerpt": [
+      "[Texto adaptado para demonstração] O ano de 1866 foi marcado por um acontecimento estranho, um fenômeno inexplicado de que ninguém, certamente, se esqueceu.",
+      "[Texto adaptado para demonstração] Navios de várias nações relatavam ter encontrado, em alto-mar, uma coisa enorme, comprida, fusiforme, por vezes fosforescente, infinitamente maior e mais rápida do que uma baleia.",
+      "[Texto adaptado para demonstração] Fui convidado a integrar a expedição da fragata Abraham Lincoln. Mal sabia eu que, semanas depois, estaria a bordo do próprio monstro — e que o monstro tinha um capitão."
+    ]
+  }
+]
+

@@ -1,0 +1,17 @@
+{
+  "name": "biblioteca-digital-semantica-grupo9",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Biblioteca Digital Semântica (Grupo 9) — RDF/SPARQL 1.1 + Next.js BFF + React Frontend Apple HIG",
+  "scripts": {
+    "build:ttl": "node SparQL/scripts/build-ttl.mjs",
+    "dev": "node scripts/dev.mjs",
+    "dev:backend": "npm run dev --prefix JavaScript/Backend",
+    "dev:frontend": "npm run dev --prefix JavaScript/Frontend",
+    "build:backend": "npm run build --prefix JavaScript/Backend",
+    "build:frontend": "npm run build --prefix JavaScript/Frontend",
+    "build": "npm run build:ttl && npm run build:backend && npm run build:frontend"
+  }
+}
+

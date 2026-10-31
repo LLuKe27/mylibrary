@@ -1,0 +1,47 @@
+# Busca de livros por autoria (dct:creator) e/ou gênero (schema:genre).
+# O backend substitui a linha "#@FILTERS" por cláusulas FILTER seguras,
+# por exemplo:
+#   FILTER(?author = <https://biblioteca.grupo9.example/resource/author/machado-de-assis>)
+#   FILTER(?genre  = <https://biblioteca.grupo9.example/resource/genre/realismo>)
+#   FILTER(CONTAINS(?searchText, "casmurro"))
+# Sem substituição, a consulta é válida e retorna todo o acervo.
+
+PREFIX dct:    <http://purl.org/dc/terms/>
+PREFIX schema: <https://schema.org/>
+PREFIX foaf:   <http://xmlns.com/foaf/0.1/>
+PREFIX skos:   <http://www.w3.org/2004/02/skos/core#>
+PREFIX lib:    <https://biblioteca.grupo9.example/ontology#>
+
+SELECT ?book ?id ?title ?year ?pages ?synopsis
+       ?author ?authorId ?authorName
+       ?genre ?genreId ?genreLabel
+       ?audioUrl ?duration ?palette ?motif
+WHERE {
+  ?book a schema:Book ;
+        lib:slug ?id ;
+        dct:title ?title ;
+        dct:creator ?author ;
+        schema:genre ?genre ;
+        lib:searchText ?searchText .
+
+  ?author lib:slug ?authorId ;
+          foaf:name ?authorName .
+
+  ?genre lib:slug ?genreId ;
+         skos:prefLabel ?genreLabel .
+
+  OPTIONAL { ?book dct:issued ?year }
+  OPTIONAL { ?book schema:numberOfPages ?pages }
+  OPTIONAL { ?book schema:abstract ?synopsis }
+  OPTIONAL { ?book lib:coverPalette ?palette }
+  OPTIONAL { ?book lib:coverMotif ?motif }
+  OPTIONAL {
+    ?book schema:audio ?audio .
+    ?audio schema:contentUrl ?audioUrl ;
+           schema:duration ?duration .
+  }
+
+  #@FILTERS
+}
+ORDER BY ?title
+

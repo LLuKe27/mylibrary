@@ -1,0 +1,17 @@
+# Lista de gêneros literários (skos:Concept) com quantidade de obras (faceta "Gêneros").
+
+PREFIX schema: <https://schema.org/>
+PREFIX skos:   <http://www.w3.org/2004/02/skos/core#>
+PREFIX lib:    <https://biblioteca.grupo9.example/ontology#>
+
+SELECT ?genre ?id ?label ?description (COUNT(DISTINCT ?book) AS ?books)
+WHERE {
+  ?genre a skos:Concept ;
+         lib:slug ?id ;
+         skos:prefLabel ?label .
+  OPTIONAL { ?genre skos:definition ?description }
+  OPTIONAL { ?book a schema:Book ; schema:genre ?genre }
+}
+GROUP BY ?genre ?id ?label ?description
+ORDER BY ?label
+

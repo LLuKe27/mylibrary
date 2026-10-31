@@ -1,0 +1,11 @@
+[
+  { "id": "realismo", "label": "Realismo", "description": "Narrativas que retratam a sociedade de forma crítica e objetiva." },
+  { "id": "romantismo", "label": "Romantismo", "description": "Obras marcadas pela idealização, pelo sentimento e pela natureza." },
+  { "id": "naturalismo", "label": "Naturalismo", "description": "Realismo radicalizado, com foco no meio e no determinismo social." },
+  { "id": "romance-de-costumes", "label": "Romance de Costumes", "description": "Retrato das convenções, casamentos e hierarquias sociais." },
+  { "id": "ficcao-cientifica", "label": "Ficção Científica", "description": "Especulação sobre ciência, tecnologia e futuros possíveis." },
+  { "id": "terror-gotico", "label": "Terror Gótico", "description": "Atmosferas sombrias, o sobrenatural e o medo do desconhecido." },
+  { "id": "misterio", "label": "Mistério", "description": "Enigmas, investigação e dedução." },
+  { "id": "aventura", "label": "Aventura", "description": "Viagens, descobertas e jornadas extraordinárias." }
+]
+

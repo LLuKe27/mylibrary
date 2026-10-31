@@ -1,0 +1,13 @@
+[
+  { "id": "machado-de-assis", "name": "Machado de Assis", "nationality": "Brasileira", "birthYear": 1839, "deathYear": 1908 },
+  { "id": "jose-de-alencar", "name": "José de Alencar", "nationality": "Brasileira", "birthYear": 1829, "deathYear": 1877 },
+  { "id": "aluisio-azevedo", "name": "Aluísio Azevedo", "nationality": "Brasileira", "birthYear": 1857, "deathYear": 1913 },
+  { "id": "lima-barreto", "name": "Lima Barreto", "nationality": "Brasileira", "birthYear": 1881, "deathYear": 1922 },
+  { "id": "jane-austen", "name": "Jane Austen", "nationality": "Britânica", "birthYear": 1775, "deathYear": 1817 },
+  { "id": "mary-shelley", "name": "Mary Shelley", "nationality": "Britânica", "birthYear": 1797, "deathYear": 1851 },
+  { "id": "hg-wells", "name": "H. G. Wells", "nationality": "Britânica", "birthYear": 1866, "deathYear": 1946 },
+  { "id": "arthur-conan-doyle", "name": "Arthur Conan Doyle", "nationality": "Britânica", "birthYear": 1859, "deathYear": 1930 },
+  { "id": "edgar-allan-poe", "name": "Edgar Allan Poe", "nationality": "Estadunidense", "birthYear": 1809, "deathYear": 1849 },
+  { "id": "julio-verne", "name": "Júlio Verne", "nationality": "Francesa", "birthYear": 1828, "deathYear": 1905 }
+]
+

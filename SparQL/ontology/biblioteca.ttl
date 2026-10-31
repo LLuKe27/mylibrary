@@ -1,0 +1,50 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix schema: <https://schema.org/> .
+@prefix foaf:   <http://xmlns.com/foaf/0.1/> .
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
+@prefix lib:    <https://biblioteca.grupo9.example/ontology#> .
+
+# Ontologia mínima da Biblioteca Digital Semântica (Grupo 9).
+# Reutiliza vocabulários padrão e define apenas propriedades auxiliares.
+
+lib: a owl:Ontology ;
+    rdfs:label "Biblioteca Digital Semântica — Ontologia"@pt ;
+    rdfs:comment "Livros (schema:Book), autores (foaf:Person) e gêneros (skos:Concept)."@pt .
+
+# Classes reutilizadas
+schema:Book        rdfs:label "Livro"@pt .
+foaf:Person        rdfs:label "Autor(a)"@pt .
+skos:Concept       rdfs:label "Gênero literário"@pt .
+schema:AudioObject rdfs:label "Audiobook"@pt .
+
+# Propriedades reutilizadas
+dct:creator    rdfs:label "autoria"@pt ;  rdfs:domain schema:Book ; rdfs:range foaf:Person .
+schema:genre   rdfs:label "gênero"@pt ;   rdfs:domain schema:Book ; rdfs:range skos:Concept .
+schema:audio   rdfs:label "audiobook"@pt ; rdfs:domain schema:Book ; rdfs:range schema:AudioObject .
+dct:title      rdfs:label "título"@pt .
+dct:issued     rdfs:label "ano de publicação"@pt .
+schema:abstract rdfs:label "sinopse"@pt .
+
+# Propriedades próprias
+lib:slug a owl:DatatypeProperty ;
+    rdfs:label "identificador curto"@pt ;
+    rdfs:range xsd:string .
+
+lib:coverPalette a owl:DatatypeProperty ;
+    rdfs:label "paleta da capa SVG"@pt ;
+    rdfs:comment "Cores hexadecimais (fundo, destaque, tinta) separadas por vírgula, usadas para sintetizar a capa vetorial."@pt ;
+    rdfs:domain schema:Book .
+
+lib:coverMotif a owl:DatatypeProperty ;
+    rdfs:label "motivo gráfico da capa SVG"@pt ;
+    rdfs:domain schema:Book .
+
+lib:searchText a owl:DatatypeProperty ;
+    rdfs:label "texto de busca normalizado"@pt ;
+    rdfs:comment "Título, autor e gênero sem acentos e em minúsculas."@pt ;
+    rdfs:domain schema:Book .
+

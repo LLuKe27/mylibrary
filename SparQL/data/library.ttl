@@ -1,0 +1,388 @@
+# ARQUIVO GERADO — edite os JSON em data/ e rode "npm run build:ttl".
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix schema: <https://schema.org/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix lib: <https://biblioteca.grupo9.example/ontology#> .
+@prefix res: <https://biblioteca.grupo9.example/resource/> .
+
+<https://biblioteca.grupo9.example/resource/author/machado-de-assis>
+    a foaf:Person ;
+    a schema:Person ;
+    lib:slug "machado-de-assis" ;
+    foaf:name "Machado de Assis" ;
+    schema:nationality "Brasileira"@pt ;
+    schema:birthDate "1839"^^xsd:gYear ;
+    schema:deathDate "1908"^^xsd:gYear .
+
+<https://biblioteca.grupo9.example/resource/author/jose-de-alencar>
+    a foaf:Person ;
+    a schema:Person ;
+    lib:slug "jose-de-alencar" ;
+    foaf:name "José de Alencar" ;
+    schema:nationality "Brasileira"@pt ;
+    schema:birthDate "1829"^^xsd:gYear ;
+    schema:deathDate "1877"^^xsd:gYear .
+
+<https://biblioteca.grupo9.example/resource/author/aluisio-azevedo>
+    a foaf:Person ;
+    a schema:Person ;
+    lib:slug "aluisio-azevedo" ;
+    foaf:name "Aluísio Azevedo" ;
+    schema:nationality "Brasileira"@pt ;
+    schema:birthDate "1857"^^xsd:gYear ;
+    schema:deathDate "1913"^^xsd:gYear .
+
+<https://biblioteca.grupo9.example/resource/author/lima-barreto>
+    a foaf:Person ;
+    a schema:Person ;
+    lib:slug "lima-barreto" ;
+    foaf:name "Lima Barreto" ;
+    schema:nationality "Brasileira"@pt ;
+    schema:birthDate "1881"^^xsd:gYear ;
+    schema:deathDate "1922"^^xsd:gYear .
+
+<https://biblioteca.grupo9.example/resource/author/jane-austen>
+    a foaf:Person ;
+    a schema:Person ;
+    lib:slug "jane-austen" ;
+    foaf:name "Jane Austen" ;
+    schema:nationality "Britânica"@pt ;
+    schema:birthDate "1775"^^xsd:gYear ;
+    schema:deathDate "1817"^^xsd:gYear .
+
+<https://biblioteca.grupo9.example/resource/author/mary-shelley>
+    a foaf:Person ;
+    a schema:Person ;
+    lib:slug "mary-shelley" ;
+    foaf:name "Mary Shelley" ;
+    schema:nationality "Britânica"@pt ;
+    schema:birthDate "1797"^^xsd:gYear ;
+    schema:deathDate "1851"^^xsd:gYear .
+
+<https://biblioteca.grupo9.example/resource/author/hg-wells>
+    a foaf:Person ;
+    a schema:Person ;
+    lib:slug "hg-wells" ;
+    foaf:name "H. G. Wells" ;
+    schema:nationality "Britânica"@pt ;
+    schema:birthDate "1866"^^xsd:gYear ;
+    schema:deathDate "1946"^^xsd:gYear .
+
+<https://biblioteca.grupo9.example/resource/author/arthur-conan-doyle>
+    a foaf:Person ;
+    a schema:Person ;
+    lib:slug "arthur-conan-doyle" ;
+    foaf:name "Arthur Conan Doyle" ;
+    schema:nationality "Britânica"@pt ;
+    schema:birthDate "1859"^^xsd:gYear ;
+    schema:deathDate "1930"^^xsd:gYear .
+
+<https://biblioteca.grupo9.example/resource/author/edgar-allan-poe>
+    a foaf:Person ;
+    a schema:Person ;
+    lib:slug "edgar-allan-poe" ;
+    foaf:name "Edgar Allan Poe" ;
+    schema:nationality "Estadunidense"@pt ;
+    schema:birthDate "1809"^^xsd:gYear ;
+    schema:deathDate "1849"^^xsd:gYear .
+
+<https://biblioteca.grupo9.example/resource/author/julio-verne>
+    a foaf:Person ;
+    a schema:Person ;
+    lib:slug "julio-verne" ;
+    foaf:name "Júlio Verne" ;
+    schema:nationality "Francesa"@pt ;
+    schema:birthDate "1828"^^xsd:gYear ;
+    schema:deathDate "1905"^^xsd:gYear .
+
+<https://biblioteca.grupo9.example/resource/genre/realismo>
+    a skos:Concept ;
+    lib:slug "realismo" ;
+    skos:prefLabel "Realismo"@pt ;
+    skos:definition "Narrativas que retratam a sociedade de forma crítica e objetiva."@pt .
+
+<https://biblioteca.grupo9.example/resource/genre/romantismo>
+    a skos:Concept ;
+    lib:slug "romantismo" ;
+    skos:prefLabel "Romantismo"@pt ;
+    skos:definition "Obras marcadas pela idealização, pelo sentimento e pela natureza."@pt .
+
+<https://biblioteca.grupo9.example/resource/genre/naturalismo>
+    a skos:Concept ;
+    lib:slug "naturalismo" ;
+    skos:prefLabel "Naturalismo"@pt ;
+    skos:definition "Realismo radicalizado, com foco no meio e no determinismo social."@pt .
+
+<https://biblioteca.grupo9.example/resource/genre/romance-de-costumes>
+    a skos:Concept ;
+    lib:slug "romance-de-costumes" ;
+    skos:prefLabel "Romance de Costumes"@pt ;
+    skos:definition "Retrato das convenções, casamentos e hierarquias sociais."@pt .
+
+<https://biblioteca.grupo9.example/resource/genre/ficcao-cientifica>
+    a skos:Concept ;
+    lib:slug "ficcao-cientifica" ;
+    skos:prefLabel "Ficção Científica"@pt ;
+    skos:definition "Especulação sobre ciência, tecnologia e futuros possíveis."@pt .
+
+<https://biblioteca.grupo9.example/resource/genre/terror-gotico>
+    a skos:Concept ;
+    lib:slug "terror-gotico" ;
+    skos:prefLabel "Terror Gótico"@pt ;
+    skos:definition "Atmosferas sombrias, o sobrenatural e o medo do desconhecido."@pt .
+
+<https://biblioteca.grupo9.example/resource/genre/misterio>
+    a skos:Concept ;
+    lib:slug "misterio" ;
+    skos:prefLabel "Mistério"@pt ;
+    skos:definition "Enigmas, investigação e dedução."@pt .
+
+<https://biblioteca.grupo9.example/resource/genre/aventura>
+    a skos:Concept ;
+    lib:slug "aventura" ;
+    skos:prefLabel "Aventura"@pt ;
+    skos:definition "Viagens, descobertas e jornadas extraordinárias."@pt .
+
+<https://biblioteca.grupo9.example/resource/book/dom-casmurro>
+    a schema:Book ;
+    lib:slug "dom-casmurro" ;
+    dct:title "Dom Casmurro"@pt ;
+    dct:creator <https://biblioteca.grupo9.example/resource/author/machado-de-assis> ;
+    schema:genre <https://biblioteca.grupo9.example/resource/genre/realismo> ;
+    dct:issued "1899"^^xsd:gYear ;
+    schema:numberOfPages "256"^^xsd:integer ;
+    schema:abstract "Bento Santiago, já maduro e solitário, revisita a juventude para tentar unir as pontas da vida. Narra o amor por Capitu, a amizade com Escobar e a dúvida que corrói tudo: teria sido traído? Um narrador pouco confiável conduz o leitor por um dos maiores enigmas da literatura brasileira."@pt ;
+    lib:coverPalette "#1d2a44,#e9b44c,#f5efe0" ;
+    lib:coverMotif "eyes" ;
+    lib:searchText "dom casmurro machado de assis realismo" ;
+    schema:audio <https://biblioteca.grupo9.example/resource/audio/dom-casmurro> .
+
+<https://biblioteca.grupo9.example/resource/audio/dom-casmurro>
+    a schema:AudioObject ;
+    schema:contentUrl "/api/audio/dom-casmurro" ;
+    schema:encodingFormat "audio/wav" ;
+    schema:duration "PT120S"^^xsd:duration .
+
+<https://biblioteca.grupo9.example/resource/book/memorias-postumas>
+    a schema:Book ;
+    lib:slug "memorias-postumas" ;
+    dct:title "Memórias Póstumas de Brás Cubas"@pt ;
+    dct:creator <https://biblioteca.grupo9.example/resource/author/machado-de-assis> ;
+    schema:genre <https://biblioteca.grupo9.example/resource/genre/realismo> ;
+    dct:issued "1881"^^xsd:gYear ;
+    schema:numberOfPages "224"^^xsd:integer ;
+    schema:abstract "Um defunto autor decide contar a própria vida depois de morto. Com ironia e pessimismo, Brás Cubas expõe a vaidade, as ambições frustradas e os amores mal resolvidos da elite carioca do século XIX, inaugurando o Realismo no Brasil."@pt ;
+    lib:coverPalette "#2b2b2b,#c94f4f,#f2f2f2" ;
+    lib:coverMotif "circles" ;
+    lib:searchText "memorias postumas de bras cubas machado de assis realismo" ;
+    schema:audio <https://biblioteca.grupo9.example/resource/audio/memorias-postumas> .
+
+<https://biblioteca.grupo9.example/resource/audio/memorias-postumas>
+    a schema:AudioObject ;
+    schema:contentUrl "/api/audio/memorias-postumas" ;
+    schema:encodingFormat "audio/wav" ;
+    schema:duration "PT110S"^^xsd:duration .
+
+<https://biblioteca.grupo9.example/resource/book/iracema>
+    a schema:Book ;
+    lib:slug "iracema" ;
+    dct:title "Iracema"@pt ;
+    dct:creator <https://biblioteca.grupo9.example/resource/author/jose-de-alencar> ;
+    schema:genre <https://biblioteca.grupo9.example/resource/genre/romantismo> ;
+    dct:issued "1865"^^xsd:gYear ;
+    schema:numberOfPages "128"^^xsd:integer ;
+    schema:abstract "A virgem dos lábios de mel, guardiã do segredo da jurema, apaixona-se pelo guerreiro português Martim. Lenda poética sobre a origem do Ceará, o romance simboliza o encontro — e o conflito — entre o nativo e o colonizador."@pt ;
+    lib:coverPalette "#0f5257,#f2a65a,#fff7e8" ;
+    lib:coverMotif "leaves" ;
+    lib:searchText "iracema jose de alencar romantismo" ;
+    schema:audio <https://biblioteca.grupo9.example/resource/audio/iracema> .
+
+<https://biblioteca.grupo9.example/resource/audio/iracema>
+    a schema:AudioObject ;
+    schema:contentUrl "/api/audio/iracema" ;
+    schema:encodingFormat "audio/wav" ;
+    schema:duration "PT100S"^^xsd:duration .
+
+<https://biblioteca.grupo9.example/resource/book/o-guarani>
+    a schema:Book ;
+    lib:slug "o-guarani" ;
+    dct:title "O Guarani"@pt ;
+    dct:creator <https://biblioteca.grupo9.example/resource/author/jose-de-alencar> ;
+    schema:genre <https://biblioteca.grupo9.example/resource/genre/romantismo> ;
+    dct:issued "1857"^^xsd:gYear ;
+    schema:numberOfPages "352"^^xsd:integer ;
+    schema:abstract "No século XVII, às margens do Paquequer, o indígena Peri dedica sua lealdade a Cecília, filha do fidalgo D. Antônio de Mariz. Entre ataques, traições e uma natureza grandiosa, o romance constrói um mito de fundação nacional."@pt ;
+    lib:coverPalette "#203a2b,#d9c26b,#f4f1e6" ;
+    lib:coverMotif "waves" ;
+    lib:searchText "o guarani jose de alencar romantismo" ;
+    schema:audio <https://biblioteca.grupo9.example/resource/audio/o-guarani> .
+
+<https://biblioteca.grupo9.example/resource/audio/o-guarani>
+    a schema:AudioObject ;
+    schema:contentUrl "/api/audio/o-guarani" ;
+    schema:encodingFormat "audio/wav" ;
+    schema:duration "PT130S"^^xsd:duration .
+
+<https://biblioteca.grupo9.example/resource/book/o-cortico>
+    a schema:Book ;
+    lib:slug "o-cortico" ;
+    dct:title "O Cortiço"@pt ;
+    dct:creator <https://biblioteca.grupo9.example/resource/author/aluisio-azevedo> ;
+    schema:genre <https://biblioteca.grupo9.example/resource/genre/naturalismo> ;
+    dct:issued "1890"^^xsd:gYear ;
+    schema:numberOfPages "288"^^xsd:integer ;
+    schema:abstract "João Romão acumula riqueza explorando os moradores do cortiço que construiu no Rio de Janeiro. Em um ambiente coletivo e pulsante, os personagens são moldados pelo meio, num retrato cru das desigualdades do Brasil oitocentista."@pt ;
+    lib:coverPalette "#3d2c2e,#e07a5f,#f4f1de" ;
+    lib:coverMotif "grid" ;
+    lib:searchText "o cortico aluisio azevedo naturalismo" ;
+    schema:audio <https://biblioteca.grupo9.example/resource/audio/o-cortico> .
+
+<https://biblioteca.grupo9.example/resource/audio/o-cortico>
+    a schema:AudioObject ;
+    schema:contentUrl "/api/audio/o-cortico" ;
+    schema:encodingFormat "audio/wav" ;
+    schema:duration "PT115S"^^xsd:duration .
+
+<https://biblioteca.grupo9.example/resource/book/policarpo-quaresma>
+    a schema:Book ;
+    lib:slug "policarpo-quaresma" ;
+    dct:title "Triste Fim de Policarpo Quaresma"@pt ;
+    dct:creator <https://biblioteca.grupo9.example/resource/author/lima-barreto> ;
+    schema:genre <https://biblioteca.grupo9.example/resource/genre/realismo> ;
+    dct:issued "1915"^^xsd:gYear ;
+    schema:numberOfPages "240"^^xsd:integer ;
+    schema:abstract "O major Policarpo Quaresma ama o Brasil com fervor ingênuo: estuda tupi, defende a agricultura nacional e apoia o governo. Seu idealismo, porém, choca-se com a burocracia e a violência da Primeira República."@pt ;
+    lib:coverPalette "#14213d,#2a9d8f,#fefae0" ;
+    lib:coverMotif "lines" ;
+    lib:searchText "triste fim de policarpo quaresma lima barreto realismo" ;
+    schema:audio <https://biblioteca.grupo9.example/resource/audio/policarpo-quaresma> .
+
+<https://biblioteca.grupo9.example/resource/audio/policarpo-quaresma>
+    a schema:AudioObject ;
+    schema:contentUrl "/api/audio/policarpo-quaresma" ;
+    schema:encodingFormat "audio/wav" ;
+    schema:duration "PT105S"^^xsd:duration .
+
+<https://biblioteca.grupo9.example/resource/book/orgulho-e-preconceito>
+    a schema:Book ;
+    lib:slug "orgulho-e-preconceito" ;
+    dct:title "Orgulho e Preconceito"@pt ;
+    dct:creator <https://biblioteca.grupo9.example/resource/author/jane-austen> ;
+    schema:genre <https://biblioteca.grupo9.example/resource/genre/romance-de-costumes> ;
+    dct:issued "1813"^^xsd:gYear ;
+    schema:numberOfPages "424"^^xsd:integer ;
+    schema:abstract "Elizabeth Bennet, espirituosa e independente, conhece o reservado Sr. Darcy. Entre bailes, cartas e mal-entendidos, ambos precisam superar o orgulho e os preconceitos para enxergar quem o outro realmente é."@pt ;
+    lib:coverPalette "#f1e3d3,#8e5572,#2d1e2f" ;
+    lib:coverMotif "flowers" ;
+    lib:searchText "orgulho e preconceito jane austen romance de costumes" ;
+    schema:audio <https://biblioteca.grupo9.example/resource/audio/orgulho-e-preconceito> .
+
+<https://biblioteca.grupo9.example/resource/audio/orgulho-e-preconceito>
+    a schema:AudioObject ;
+    schema:contentUrl "/api/audio/orgulho-e-preconceito" ;
+    schema:encodingFormat "audio/wav" ;
+    schema:duration "PT125S"^^xsd:duration .
+
+<https://biblioteca.grupo9.example/resource/book/frankenstein>
+    a schema:Book ;
+    lib:slug "frankenstein" ;
+    dct:title "Frankenstein"@pt ;
+    dct:creator <https://biblioteca.grupo9.example/resource/author/mary-shelley> ;
+    schema:genre <https://biblioteca.grupo9.example/resource/genre/terror-gotico> ;
+    dct:issued "1818"^^xsd:gYear ;
+    schema:numberOfPages "280"^^xsd:integer ;
+    schema:abstract "Victor Frankenstein desafia os limites da ciência e dá vida a uma criatura. Rejeitado por seu criador e pela sociedade, o ser busca compreensão e vingança, numa reflexão sobre responsabilidade, solidão e humanidade."@pt ;
+    lib:coverPalette "#0b132b,#5bc0be,#e0fbfc" ;
+    lib:coverMotif "bolt" ;
+    lib:searchText "frankenstein mary shelley terror gotico" ;
+    schema:audio <https://biblioteca.grupo9.example/resource/audio/frankenstein> .
+
+<https://biblioteca.grupo9.example/resource/audio/frankenstein>
+    a schema:AudioObject ;
+    schema:contentUrl "/api/audio/frankenstein" ;
+    schema:encodingFormat "audio/wav" ;
+    schema:duration "PT120S"^^xsd:duration .
+
+<https://biblioteca.grupo9.example/resource/book/a-maquina-do-tempo>
+    a schema:Book ;
+    lib:slug "a-maquina-do-tempo" ;
+    dct:title "A Máquina do Tempo"@pt ;
+    dct:creator <https://biblioteca.grupo9.example/resource/author/hg-wells> ;
+    schema:genre <https://biblioteca.grupo9.example/resource/genre/ficcao-cientifica> ;
+    dct:issued "1895"^^xsd:gYear ;
+    schema:numberOfPages "160"^^xsd:integer ;
+    schema:abstract "Um inventor vitoriano constrói uma máquina capaz de viajar pelo tempo e chega ao ano 802.701. Lá encontra os delicados Elóis e os sombrios Morlocks, herdeiros de uma humanidade dividida."@pt ;
+    lib:coverPalette "#22223b,#f2e94e,#f8f9fa" ;
+    lib:coverMotif "clock" ;
+    lib:searchText "a maquina do tempo h. g. wells ficcao cientifica" ;
+    schema:audio <https://biblioteca.grupo9.example/resource/audio/a-maquina-do-tempo> .
+
+<https://biblioteca.grupo9.example/resource/audio/a-maquina-do-tempo>
+    a schema:AudioObject ;
+    schema:contentUrl "/api/audio/a-maquina-do-tempo" ;
+    schema:encodingFormat "audio/wav" ;
+    schema:duration "PT95S"^^xsd:duration .
+
+<https://biblioteca.grupo9.example/resource/book/o-cao-dos-baskervilles>
+    a schema:Book ;
+    lib:slug "o-cao-dos-baskervilles" ;
+    dct:title "O Cão dos Baskervilles"@pt ;
+    dct:creator <https://biblioteca.grupo9.example/resource/author/arthur-conan-doyle> ;
+    schema:genre <https://biblioteca.grupo9.example/resource/genre/misterio> ;
+    dct:issued "1902"^^xsd:gYear ;
+    schema:numberOfPages "256"^^xsd:integer ;
+    schema:abstract "Uma lenda amaldiçoa a família Baskerville: um cão infernal que assombra os pântanos de Dartmoor. Sherlock Holmes e Dr. Watson investigam a misteriosa morte de Sir Charles e protegem o jovem herdeiro."@pt ;
+    lib:coverPalette "#1b1b1e,#d8973c,#f7f7ff" ;
+    lib:coverMotif "moon" ;
+    lib:searchText "o cao dos baskervilles arthur conan doyle misterio" ;
+    schema:audio <https://biblioteca.grupo9.example/resource/audio/o-cao-dos-baskervilles> .
+
+<https://biblioteca.grupo9.example/resource/audio/o-cao-dos-baskervilles>
+    a schema:AudioObject ;
+    schema:contentUrl "/api/audio/o-cao-dos-baskervilles" ;
+    schema:encodingFormat "audio/wav" ;
+    schema:duration "PT110S"^^xsd:duration .
+
+<https://biblioteca.grupo9.example/resource/book/o-corvo>
+    a schema:Book ;
+    lib:slug "o-corvo" ;
+    dct:title "O Corvo e Outros Contos"@pt ;
+    dct:creator <https://biblioteca.grupo9.example/resource/author/edgar-allan-poe> ;
+    schema:genre <https://biblioteca.grupo9.example/resource/genre/terror-gotico> ;
+    dct:issued "1845"^^xsd:gYear ;
+    schema:numberOfPages "144"^^xsd:integer ;
+    schema:abstract "Numa meia-noite sombria, um homem enlutado recebe a visita de um corvo que responde a todas as perguntas com uma só palavra: nunca mais. Reunião de poemas e contos que definiram o horror psicológico moderno."@pt ;
+    lib:coverPalette "#0d0d0d,#9d0208,#e5e5e5" ;
+    lib:coverMotif "feather" ;
+    lib:searchText "o corvo e outros contos edgar allan poe terror gotico" ;
+    schema:audio <https://biblioteca.grupo9.example/resource/audio/o-corvo> .
+
+<https://biblioteca.grupo9.example/resource/audio/o-corvo>
+    a schema:AudioObject ;
+    schema:contentUrl "/api/audio/o-corvo" ;
+    schema:encodingFormat "audio/wav" ;
+    schema:duration "PT90S"^^xsd:duration .
+
+<https://biblioteca.grupo9.example/resource/book/vinte-mil-leguas>
+    a schema:Book ;
+    lib:slug "vinte-mil-leguas" ;
+    dct:title "Vinte Mil Léguas Submarinas"@pt ;
+    dct:creator <https://biblioteca.grupo9.example/resource/author/julio-verne> ;
+    schema:genre <https://biblioteca.grupo9.example/resource/genre/aventura> ;
+    dct:issued "1870"^^xsd:gYear ;
+    schema:numberOfPages "448"^^xsd:integer ;
+    schema:abstract "O professor Aronnax é capturado pelo enigmático Capitão Nemo e embarca no Nautilus, um submarino à frente de seu tempo. Juntos percorrem os oceanos do mundo, entre maravilhas, perigos e segredos."@pt ;
+    lib:coverPalette "#023e8a,#90e0ef,#caf0f8" ;
+    lib:coverMotif "bubbles" ;
+    lib:searchText "vinte mil leguas submarinas julio verne aventura" ;
+    schema:audio <https://biblioteca.grupo9.example/resource/audio/vinte-mil-leguas> .
+
+<https://biblioteca.grupo9.example/resource/audio/vinte-mil-leguas>
+    a schema:AudioObject ;
+    schema:contentUrl "/api/audio/vinte-mil-leguas" ;
+    schema:encodingFormat "audio/wav" ;
+    schema:duration "PT135S"^^xsd:duration .
