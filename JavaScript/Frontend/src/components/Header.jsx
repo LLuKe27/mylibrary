@@ -15,6 +15,16 @@ export function Header({ theme, onCycleTheme, historyOpen, onToggleHistory, onSh
         <span className="brand__title">My Library</span>
       </a>
       <div className="header-actions">
+        <a
+          className="icon-btn"
+          href="https://github.com/LLuKe27/mylibrary"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Repositório no GitHub"
+          title="Repositório no GitHub"
+        >
+          <Icon.GitHub width={20} height={20} />
+        </a>
         <button className="icon-btn" onClick={onShowShortcuts} aria-label="Atalhos de teclado (?)" title="Atalhos de teclado (?)">
           <Icon.Keyboard />
         </button>
