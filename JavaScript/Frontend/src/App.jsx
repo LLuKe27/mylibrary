@@ -32,6 +32,7 @@ export default function App() {
   const [history, setHistory] = useState([]);
   const [historyOpen, setHistoryOpen] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   // Facetas (SPARQL: authors.rq / genres.rq)
   useEffect(() => {
@@ -116,6 +117,8 @@ export default function App() {
     ...filters.genres.map((id) => genres?.find((g) => g.id === id)?.label),
   ].filter(Boolean);
 
+  const activeFilterCount = filters.authors.length + filters.genres.length + (query.trim() ? 1 : 0);
+
   const books = result.books;
 
   return (
@@ -130,6 +133,9 @@ export default function App() {
           historyOpen={historyOpen}
           onToggleHistory={() => setHistoryOpen((v) => !v)}
           onShowShortcuts={() => setHelpOpen(true)}
+          onToggleSidebar={() => setSidebarOpen((v) => !v)}
+          sidebarOpen={sidebarOpen}
+          activeFilterCount={activeFilterCount}
         />
 
         <div className="app-body">
@@ -143,11 +149,13 @@ export default function App() {
             onToggleAuthor={(id) => setFilters((f) => ({ ...f, authors: toggleIn(f.authors, id) }))}
             onToggleGenre={(id) => setFilters((f) => ({ ...f, genres: toggleIn(f.genres, id) }))}
             onClear={() => { setFilters({ authors: [], genres: [] }); setQuery(''); }}
+            isOpen={sidebarOpen}
+            onClose={() => setSidebarOpen(false)}
           />
 
           <main id="catalog" className="catalog" tabIndex={-1} aria-labelledby="catalog-title">
             <div className="catalog__head">
-              <div>
+              <div className="catalog__title-group">
                 <h1 id="catalog-title" className="catalog__title">
                   {activeLabels.length ? activeLabels.join(' · ') : 'Todo o acervo'}
                 </h1>
@@ -155,10 +163,21 @@ export default function App() {
                   {books ? `${books.length} ${books.length === 1 ? 'livro encontrado' : 'livros encontrados'}` : 'Consultando o grafo…'}
                 </p>
               </div>
-              <details className="sparql-peek">
-                <summary><Icon.Code width={14} height={14} /> SPARQL</summary>
-                <pre><code>{result.sparql || '…'}</code></pre>
-              </details>
+              <div className="catalog__head-actions">
+                <button
+                  className="btn btn--ghost mobile-filter-btn"
+                  onClick={() => setSidebarOpen(true)}
+                  aria-label="Abrir filtros"
+                >
+                  <Icon.Filter width={15} height={15} />
+                  <span>Filtros</span>
+                  {activeFilterCount > 0 && <span className="chip__count">{activeFilterCount}</span>}
+                </button>
+                <details className="sparql-peek">
+                  <summary><Icon.Code width={14} height={14} /> SPARQL</summary>
+                  <pre><code>{result.sparql || '…'}</code></pre>
+                </details>
+              </div>
             </div>
 
             {error && <p className="alert" role="alert">⚠ {error}. Verifique se o backend está rodando em http://localhost:3001.</p>}

@@ -169,10 +169,24 @@ h1, h2, h3, p { margin: 0; }
   top: 0;
   z-index: 10;
 }
+.header-left { display: flex; align-items: center; gap: 12px; }
 .brand { display: flex; align-items: center; gap: 14px; color: inherit; text-decoration: none; border-radius: 999px; }
 .brand img { border-radius: 50%; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25); }
 .brand__title { font-size: clamp(22px, 2.4vw, 30px); font-weight: 600; letter-spacing: -0.03em; }
 .header-actions { display: flex; align-items: center; gap: 10px; }
+
+.mobile-filter-trigger { display: none; position: relative; }
+.mobile-filter-pill { display: none; }
+.sidebar-backdrop { display: none; }
+.sidebar__mobile-head { display: none; }
+.sidebar__apply-btn { display: none; }
+.filter-badge {
+  position: absolute; top: 4px; right: 4px;
+  min-width: 17px; height: 17px; padding: 0 4px; border-radius: 999px;
+  background: var(--accent); color: var(--accent-text);
+  font-size: 10px; font-weight: 700; display: grid; place-items: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
 
 /* ---------- Botões ---------- */
 .icon-btn {
@@ -515,30 +529,107 @@ kbd { font: 600 12px var(--font); padding: 3px 8px; border-radius: 7px; border: 
 
 /* ---------- Responsivo ---------- */
 @media (max-width: 900px) {
-  .app-body { grid-template-columns: 1fr; }
-  .sidebar { position: static; max-height: none; border-right: 0; border-bottom: var(--stroke-w) solid var(--stroke); display: grid; grid-template-columns: 1fr 1fr; }
-  .sidebar .search, .sidebar .btn--block { grid-column: 1 / -1; }
-  .facet__list { flex-direction: row; flex-wrap: wrap; }
-  .chip { width: auto; }
-  .modal__body, .modal.is-expanded .modal__body { grid-template-columns: 1fr; }
-  .modal__cover { max-width: 220px; margin: 0 auto; }
+  .app-header { padding: 10px 16px; }
+  .brand img { width: 38px; height: 38px; }
+  .brand__title { font-size: 20px; }
+  .header-actions { gap: 6px; }
+  .header-actions .icon-btn { width: 38px; height: 38px; }
+
+  .mobile-filter-trigger { display: inline-grid; width: 38px; height: 38px; }
+  .mobile-filter-btn { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; font-size: 13px; }
+
+  .app-body { display: block; }
+
+  /* Backdrop do Drawer */
+  .sidebar-backdrop {
+    display: block;
+    position: fixed; inset: 0; z-index: 70;
+    background: rgba(0, 0, 0, 0.6);
+    -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+    animation: fade 0.2s ease;
+  }
+
+  /* Barra Lateral que Encolhe/Expande no Celular */
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    width: min(320px, 86vw);
+    height: 100vh; max-height: 100vh;
+    z-index: 75;
+    background: var(--glass-tint);
+    -webkit-backdrop-filter: blur(40px) saturate(200%);
+    backdrop-filter: blur(40px) saturate(200%);
+    border-right: var(--stroke-w) solid var(--stroke-strong);
+    box-shadow: 20px 0 50px rgba(0, 0, 0, 0.7);
+    padding: 16px 16px 28px;
+    display: flex; flex-direction: column; gap: 14px;
+    overflow-y: auto;
+    transform: translateX(-100%); /* Encolhida / fechada por padrão */
+    transition: transform 0.35s var(--spring), visibility 0.35s;
+    visibility: hidden;
+  }
+  .sidebar.is-open {
+    transform: translateX(0); /* Expandida ao clicar */
+    visibility: visible;
+  }
+
+  .sidebar__mobile-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-bottom: 8px; border-bottom: var(--stroke-w) solid var(--stroke);
+  }
+  .sidebar__mobile-title {
+    display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 16px;
+  }
+  .sidebar__mobile-title h2 { font-size: 17px; margin: 0; }
+  .sidebar__apply-btn { display: inline-flex; background: var(--text); color: var(--bg); margin-top: 6px; }
+
+  /* O Catálogo ocupa todo o espaço do celular */
+  .catalog {
+    padding: 16px 14px 140px;
+  }
+  .catalog__head {
+    align-items: center; gap: 10px; margin-bottom: 14px;
+  }
+  .catalog__title { font-size: 22px; }
+  .catalog__head-actions {
+    display: flex; align-items: center; gap: 8px;
+  }
   .sparql-peek { display: none; }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .book-card { padding: 8px; gap: 8px; border-radius: var(--radius-md); }
+  .book-card__title { font-size: 13.5px; -webkit-line-clamp: 2; }
+  .book-card__author { font-size: 11.5px; }
+  .play-dot { width: 32px; height: 32px; }
+
+  .modal__body, .modal.is-expanded .modal__body { grid-template-columns: 1fr; }
+  .modal__cover { max-width: 200px; margin: 0 auto; }
+  .modal { padding: 14px 16px 20px; }
+
   .app-window.has-player .catalog { padding-bottom: 170px; }
+
   .player {
-    bottom: 12px;
-    width: calc(100vw - 20px);
-    padding: 12px 14px;
-    gap: 8px 12px;
-    grid-template-columns: 48px 1fr auto;
+    bottom: 10px;
+    width: calc(100vw - 16px);
+    padding: 10px 12px;
+    gap: 6px 10px;
+    border-radius: var(--radius-lg);
+    grid-template-columns: 42px 1fr auto;
     grid-template-areas:
       'thumb info close'
       'controls controls speed'
       'progress progress progress';
   }
-  .player__thumb { width: 48px; }
+  .player__thumb { width: 42px; border-radius: 6px; }
+  .player__title { font-size: 13.5px; }
+  .player__author { font-size: 11.5px; }
+  .speed-pill { min-width: 48px; height: 32px; font-size: 12px; }
 }
 @media (max-width: 520px) {
-  .sidebar { grid-template-columns: 1fr; }
   .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .app-window { margin: 0; border-radius: 0; }
 }

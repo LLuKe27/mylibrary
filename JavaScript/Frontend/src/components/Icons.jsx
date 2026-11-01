@@ -47,6 +47,9 @@ export const Icon = {
   ChevronRight: (p) => (
     <svg {...base} {...p}><path d="m9 18 6-6-6-6" /></svg>
   ),
+  Filter: (p) => (
+    <svg {...base} {...p}><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" /></svg>
+  ),
   Keyboard: (p) => (
     <svg {...base} {...p}><rect x="2" y="6" width="20" height="12" rx="2" /><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10" /></svg>
   ),

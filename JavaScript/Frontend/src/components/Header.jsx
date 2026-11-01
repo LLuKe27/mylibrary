@@ -6,14 +6,35 @@ const THEME_META = {
   contrast: { icon: Icon.Contrast, next: 'escuro' },
 };
 
-export function Header({ theme, onCycleTheme, historyOpen, onToggleHistory, onShowShortcuts }) {
+export function Header({
+  theme,
+  onCycleTheme,
+  historyOpen,
+  onToggleHistory,
+  onShowShortcuts,
+  onToggleSidebar,
+  sidebarOpen,
+  activeFilterCount = 0,
+}) {
   const ThemeIcon = THEME_META[theme].icon;
   return (
     <header className="app-header glass">
-      <a className="brand" href="/" aria-label="My Library — início">
-        <img src="/logo.svg" alt="" width="52" height="52" />
-        <span className="brand__title">My Library</span>
-      </a>
+      <div className="header-left">
+        <button
+          className={`icon-btn mobile-filter-trigger ${activeFilterCount > 0 ? 'has-badge' : ''}`}
+          onClick={onToggleSidebar}
+          aria-label={sidebarOpen ? 'Fechar filtros' : 'Abrir filtros de busca'}
+          aria-expanded={sidebarOpen}
+          title="Filtros"
+        >
+          <Icon.Filter width={18} height={18} />
+          {activeFilterCount > 0 && <span className="filter-badge">{activeFilterCount}</span>}
+        </button>
+        <a className="brand" href="/" aria-label="My Library — início">
+          <img src="/logo.svg" alt="" width="52" height="52" />
+          <span className="brand__title">My Library</span>
+        </a>
+      </div>
       <div className="header-actions">
         <a
           className="icon-btn"

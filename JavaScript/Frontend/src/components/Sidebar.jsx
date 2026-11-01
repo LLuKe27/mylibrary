@@ -24,32 +24,58 @@ function FacetList({ title, items, selected, onToggle, labelKey }) {
   );
 }
 
-export const Sidebar = forwardRef(function Sidebar({ query, onQuery, authors, genres, filters, onToggleAuthor, onToggleGenre, onClear }, searchRef) {
+export const Sidebar = forwardRef(function Sidebar(
+  { query, onQuery, authors, genres, filters, onToggleAuthor, onToggleGenre, onClear, isOpen, onClose },
+  searchRef,
+) {
   const hasFilters = filters.authors.length || filters.genres.length || query;
   return (
-    <aside className="sidebar" aria-label="Filtros de busca">
-      <form className="search" role="search" onSubmit={(e) => e.preventDefault()}>
-        <label htmlFor="search-input" className="sr-only">Buscar por título, autor ou gênero</label>
-        <Icon.Search className="search__icon" />
-        <input
-          ref={searchRef}
-          id="search-input"
-          type="search"
-          placeholder="Search"
-          autoComplete="off"
-          value={query}
-          onChange={(e) => onQuery(e.target.value)}
-        />
-        <kbd className="search__kbd" aria-hidden="true">/</kbd>
-      </form>
+    <>
+      {isOpen && <div className="sidebar-backdrop" onClick={onClose} aria-hidden="true" />}
+      <aside className={`sidebar ${isOpen ? 'is-open' : ''}`} aria-label="Filtros de busca">
+        <div className="sidebar__mobile-head">
+          <div className="sidebar__mobile-title">
+            <Icon.Filter width={18} height={18} />
+            <h2>Filtros</h2>
+          </div>
+          <button
+            className="icon-btn icon-btn--sm"
+            onClick={onClose}
+            aria-label="Fechar filtros"
+            title="Fechar filtros"
+          >
+            <Icon.Close width={16} height={16} />
+          </button>
+        </div>
 
-      <FacetList title="Autores" items={authors} selected={filters.authors} onToggle={onToggleAuthor} labelKey="name" />
-      <FacetList title="Gêneros" items={genres} selected={filters.genres} onToggle={onToggleGenre} labelKey="label" />
+        <form className="search" role="search" onSubmit={(e) => e.preventDefault()}>
+          <label htmlFor="search-input" className="sr-only">Buscar por título, autor ou gênero</label>
+          <Icon.Search className="search__icon" />
+          <input
+            ref={searchRef}
+            id="search-input"
+            type="search"
+            placeholder="Search"
+            autoComplete="off"
+            value={query}
+            onChange={(e) => onQuery(e.target.value)}
+          />
+          <kbd className="search__kbd" aria-hidden="true">/</kbd>
+        </form>
 
-      {hasFilters ? (
-        <button className="btn btn--ghost btn--block" onClick={onClear}>Limpar filtros</button>
-      ) : null}
-    </aside>
+        <FacetList title="Autores" items={authors} selected={filters.authors} onToggle={onToggleAuthor} labelKey="name" />
+        <FacetList title="Gêneros" items={genres} selected={filters.genres} onToggle={onToggleGenre} labelKey="label" />
+
+        <div className="sidebar__actions">
+          {hasFilters ? (
+            <button className="btn btn--ghost btn--block" onClick={onClear}>Limpar filtros</button>
+          ) : null}
+          <button className="btn btn--block sidebar__apply-btn" onClick={onClose}>
+            Ver livros
+          </button>
+        </div>
+      </aside>
+    </>
   );
 });
 
