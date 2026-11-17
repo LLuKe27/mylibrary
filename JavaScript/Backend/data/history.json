@@ -3,15 +3,22 @@
     "bookId": "a-maquina-do-tempo",
     "title": "A Máquina do Tempo",
     "author": "H. G. Wells",
-    "action": "listen",
-    "at": "2026-11-01T02:03:53.225Z"
+    "action": "read",
+    "at": "2026-11-01T02:16:01.889Z"
   },
   {
     "bookId": "a-maquina-do-tempo",
     "title": "A Máquina do Tempo",
     "author": "H. G. Wells",
     "action": "view",
-    "at": "2026-11-01T02:03:47.616Z"
+    "at": "2026-11-01T02:15:46.029Z"
+  },
+  {
+    "bookId": "a-maquina-do-tempo",
+    "title": "A Máquina do Tempo",
+    "author": "H. G. Wells",
+    "action": "listen",
+    "at": "2026-11-01T02:03:53.225Z"
   },
   {
     "bookId": "frankenstein",
