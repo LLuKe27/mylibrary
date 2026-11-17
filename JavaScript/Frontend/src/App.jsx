@@ -33,6 +33,7 @@ export default function App() {
   const [historyOpen, setHistoryOpen] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [desktopSidebarCollapsed, setDesktopSidebarCollapsed] = useState(false);
 
   // Facetas (SPARQL: authors.rq / genres.rq)
   useEffect(() => {
@@ -119,6 +120,14 @@ export default function App() {
 
   const activeFilterCount = filters.authors.length + filters.genres.length + (query.trim() ? 1 : 0);
 
+  const toggleFilters = useCallback(() => {
+    if (window.matchMedia('(max-width: 900px)').matches) {
+      setSidebarOpen((v) => !v);
+    } else {
+      setDesktopSidebarCollapsed((v) => !v);
+    }
+  }, []);
+
   const books = result.books;
 
   return (
@@ -133,12 +142,9 @@ export default function App() {
           historyOpen={historyOpen}
           onToggleHistory={() => setHistoryOpen((v) => !v)}
           onShowShortcuts={() => setHelpOpen(true)}
-          onToggleSidebar={() => setSidebarOpen((v) => !v)}
-          sidebarOpen={sidebarOpen}
-          activeFilterCount={activeFilterCount}
         />
 
-        <div className="app-body">
+        <div className={`app-body ${desktopSidebarCollapsed ? 'is-sidebar-collapsed' : ''}`}>
           <Sidebar
             ref={searchRef}
             query={query}
@@ -165,11 +171,12 @@ export default function App() {
               </div>
               <div className="catalog__head-actions">
                 <button
-                  className="btn btn--ghost mobile-filter-btn"
-                  onClick={() => setSidebarOpen(true)}
-                  aria-label="Abrir filtros"
+                  className="filter-toggle-btn"
+                  onClick={toggleFilters}
+                  aria-label="Alternar filtros"
+                  aria-expanded={sidebarOpen || !desktopSidebarCollapsed}
                 >
-                  <Icon.Filter width={15} height={15} />
+                  <Icon.Filter width={14} height={14} />
                   <span>Filtros</span>
                   {activeFilterCount > 0 && <span className="chip__count">{activeFilterCount}</span>}
                 </button>
