@@ -73,7 +73,7 @@ Atividade DS/
 
 ---
 
-## 🚀 Como Executar
+# Como Executar
 
 ### Pré-requisitos
 - **Node.js** v18+ (testado em v24)
@@ -103,28 +103,3 @@ npm run build
 
 ---
 
-## 🎯 Funcionalidades Principais
-
-| Pilar | Implementação |
-|---|---|
-| **Consulta SPARQL (Oxigraph)** | Motor SPARQL 1.1 no backend executando buscas combinadas por autoria (`dct:creator`), gênero (`schema:genre`) e termo livre sobre triplas RDF geradas dinamicamente. |
-| **Web Semântica (JSON-LD + Microdados)** | Metadados estruturados Schema.org (`Library`, `CollectionPage`, `Book`, `SearchAction`) em `index.html`, catálogo e cards/modais (`itemScope`, `itemType`, `itemProp`). |
-| **Banco de Dados em JSON & TTL** | Catálogo em `SparQL/data/*.json` convertido para `library.ttl`; estado de histórico (`history.json`) e visitantes (`visitors.json`) em `JavaScript/Backend/data/`. |
-| **Capas SVG & Audiovisual** | `<BookCover />` gera capas vetoriais determinísticas a partir dos metadados RDF (`lib:coverPalette`, `lib:coverMotif`, título e autor). |
-| **Audiobook & Comandos de Voz** | Narração em português brasileiro com **Web Speech API** (fallback para áudio WAV procedural no backend) e reconhecimento de comandos de voz no player. |
-| **Tutorial Interativo & UUID** | `<TutorialModal />` com vídeo legendado (WebM + WebVTT) exibido na primeira visita e persistido via UUID v4 em `/api/visitor`. |
-| **Anatomia do Sistema (Bento + Mini IDE)** | `<AnatomyModal />` apresenta diagrama interativo do projeto, **Bento Grid** de recursos e **Mini IDE** navegável com snippets comentados e destaque sintático de SparQL/Turtle/JS. |
-| **Acessibilidade (a11y) & Apple HIG** | Navegação por teclado completa, *focus trap* em modais, atalhos globais, temas Escuro / Claro / Alto Contraste e efeitos translúcidos (*Liquid Glass* com `glisse`). |
-
----
-
-## ⌨️ Atalhos de Teclado Globais
-
-- **`/`**: Focar no campo de busca
-- **`Espaço`**: Reproduzir / pausar audiobook
-- **`←` / `→`**: Voltar / avançar 15 segundos no áudio (ou virar páginas no leitor)
-- **`[` / `]`**: Diminuir / aumentar velocidade de narração
-- **`H`**: Abrir / fechar painel de histórico
-- **`T`**: Alternar temas (Escuro ⇄ Claro ⇄ Alto Contraste)
-- **`Esc`**: Fechar modais, leitor ou histórico
-- **`?`**: Exibir painel de ajuda com todos os atalhos
