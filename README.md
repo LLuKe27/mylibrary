@@ -6,7 +6,6 @@ Protótipo acadêmico desenvolvido combinando **Next.js (Node.js)**, **React.js 
 
 ## 🏛️ Estrutura do Projeto
 
-O código preserva a organização modular separando gestão, camada semântica, backend BFF e frontend SPA:
 
 ```text
 Atividade DS/
