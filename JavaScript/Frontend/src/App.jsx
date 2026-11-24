@@ -1,4 +1,5 @@
 import { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState } from 'react';
+import { AnatomyModal } from './components/AnatomyModal.jsx';
 import { BookCard, BookCardSkeleton } from './components/BookCard.jsx';
 import { BookModal } from './components/BookModal.jsx';
 import { Header } from './components/Header.jsx';
@@ -7,9 +8,11 @@ import { Icon } from './components/Icons.jsx';
 import { PlayerBar } from './components/PlayerBar.jsx';
 import { ShortcutsHelp } from './components/ShortcutsHelp.jsx';
 import { Sidebar } from './components/Sidebar.jsx';
+import { TutorialModal } from './components/TutorialModal.jsx';
 import { usePlayer } from './context/PlayerContext.jsx';
 import { useTheme } from './hooks/useTheme.js';
 import { api } from './lib/api.js';
+import { buildCatalogJsonLd, safeJsonLd } from './lib/jsonld.js';
 import { validateBook } from './lib/utils.js';
 
 const isTyping = (el) => el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.isContentEditable);
@@ -32,8 +35,40 @@ export default function App() {
   const [history, setHistory] = useState([]);
   const [historyOpen, setHistoryOpen] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
+  const [anatomyOpen, setAnatomyOpen] = useState(false);
+  const [tutorialOpen, setTutorialOpen] = useState(false);
+  const [visitor, setVisitor] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [desktopSidebarCollapsed, setDesktopSidebarCollapsed] = useState(false);
+
+  // Identificação do visitante por ID Único: abre tutorial centralizado para novos usuários
+  useEffect(() => {
+    let cancelled = false;
+    let storedUid = null;
+    let localSeen = false;
+    try {
+      storedUid = localStorage.getItem('mylibrary:visitor_id');
+      localSeen = localStorage.getItem('mylibrary:tutorial_seen') === '1';
+    } catch {}
+
+    api
+      .visitor(storedUid, localSeen)
+      .then((v) => {
+        if (cancelled) return;
+        setVisitor(v);
+        try {
+          if (v?.visitorId) localStorage.setItem('mylibrary:visitor_id', v.visitorId);
+        } catch {}
+        if (v?.shouldShowTutorial && !localSeen) {
+          setTutorialOpen(true);
+        }
+      })
+      .catch(() => {
+        if (!cancelled && !localSeen) setTutorialOpen(true);
+      });
+
+    return () => { cancelled = true; };
+  }, []);
 
   // Facetas (SPARQL: authors.rq / genres.rq)
   useEffect(() => {
@@ -88,6 +123,35 @@ export default function App() {
   const clearHistory = useCallback(async () => setHistory(await api.clearHistory()), []);
   const closeModal = useCallback(() => { setSelected(null); refreshHistory(); }, [refreshHistory]);
 
+  const handleToggleHistory = useCallback(() => setHistoryOpen((v) => !v), []);
+  const handleShowShortcuts = useCallback(() => setHelpOpen(true), []);
+  const handleToggleAnatomy = useCallback(() => setAnatomyOpen((v) => !v), []);
+  const handleCloseAnatomy = useCallback(() => setAnatomyOpen(false), []);
+  const handleOpenTutorial = useCallback(() => setTutorialOpen(true), []);
+  const handleCompleteTutorial = useCallback(() => {
+    setTutorialOpen(false);
+    try { localStorage.setItem('mylibrary:tutorial_seen', '1'); } catch {}
+    if (visitor?.visitorId) {
+      api.completeTutorial(visitor.visitorId).then(setVisitor).catch(() => {});
+    }
+  }, [visitor]);
+  const handleSimulateNewUser = useCallback(() => {
+    try { localStorage.removeItem('mylibrary:tutorial_seen'); } catch {}
+    api
+      .resetVisitor()
+      .then((v) => {
+        setVisitor(v);
+        try {
+          if (v?.visitorId) localStorage.setItem('mylibrary:visitor_id', v.visitorId);
+        } catch {}
+      })
+      .catch(() => {});
+  }, []);
+  const handleToggleAuthor = useCallback((id) => setFilters((f) => ({ ...f, authors: toggleIn(f.authors, id) })), []);
+  const handleToggleGenre = useCallback((id) => setFilters((f) => ({ ...f, genres: toggleIn(f.genres, id) })), []);
+  const handleClearFilters = useCallback(() => { setFilters({ authors: [], genres: [] }); setQuery(''); }, []);
+  const handleCloseSidebar = useCallback(() => setSidebarOpen(false), []);
+
   // Atalhos globais de teclado
   useEffect(() => {
     const onKey = (e) => {
@@ -96,7 +160,7 @@ export default function App() {
         if (e.key === 'Escape') document.activeElement.blur();
         return;
       }
-      const overlay = selected || helpOpen || historyOpen;
+      const overlay = selected || helpOpen || historyOpen || anatomyOpen || tutorialOpen;
       if (e.key === '/') { e.preventDefault(); searchRef.current?.focus(); return; }
       if (e.key === '?') { setHelpOpen(true); return; }
       if (e.key.toLowerCase() === 't') { cycleTheme(); return; }
@@ -111,7 +175,7 @@ export default function App() {
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [selected, helpOpen, historyOpen, player, cycleTheme]);
+  }, [selected, helpOpen, historyOpen, anatomyOpen, tutorialOpen, player, cycleTheme]);
 
   const activeLabels = [
     ...filters.authors.map((id) => authors?.find((a) => a.id === id)?.name),
@@ -140,8 +204,12 @@ export default function App() {
           theme={theme}
           onCycleTheme={cycleTheme}
           historyOpen={historyOpen}
-          onToggleHistory={() => setHistoryOpen((v) => !v)}
-          onShowShortcuts={() => setHelpOpen(true)}
+          onToggleHistory={handleToggleHistory}
+          onShowShortcuts={handleShowShortcuts}
+          anatomyOpen={anatomyOpen}
+          onToggleAnatomy={handleToggleAnatomy}
+          tutorialOpen={tutorialOpen}
+          onOpenTutorial={handleOpenTutorial}
         />
 
         <div className={`app-body ${desktopSidebarCollapsed ? 'is-sidebar-collapsed' : ''}`}>
@@ -152,17 +220,31 @@ export default function App() {
             authors={authors}
             genres={genres}
             filters={filters}
-            onToggleAuthor={(id) => setFilters((f) => ({ ...f, authors: toggleIn(f.authors, id) }))}
-            onToggleGenre={(id) => setFilters((f) => ({ ...f, genres: toggleIn(f.genres, id) }))}
-            onClear={() => { setFilters({ authors: [], genres: [] }); setQuery(''); }}
+            onToggleAuthor={handleToggleAuthor}
+            onToggleGenre={handleToggleGenre}
+            onClear={handleClearFilters}
             isOpen={sidebarOpen}
-            onClose={() => setSidebarOpen(false)}
+            onClose={handleCloseSidebar}
           />
 
-          <main id="catalog" className="catalog" tabIndex={-1} aria-labelledby="catalog-title">
+          <main
+            id="catalog"
+            className="catalog"
+            tabIndex={-1}
+            aria-labelledby="catalog-title"
+            itemScope
+            itemType="https://schema.org/CollectionPage"
+          >
+            {books && (
+              <script
+                id="catalog-jsonld"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: safeJsonLd(buildCatalogJsonLd(books)) }}
+              />
+            )}
             <div className="catalog__head">
               <div className="catalog__title-group">
-                <h1 id="catalog-title" className="catalog__title">
+                <h1 id="catalog-title" className="catalog__title" itemProp="name">
                   {activeLabels.length ? activeLabels.join(' · ') : 'Todo o acervo'}
                 </h1>
                 <p className="catalog__count" aria-live="polite">
@@ -187,7 +269,7 @@ export default function App() {
               </div>
             </div>
 
-            {error && <p className="alert" role="alert">⚠ {error}. Verifique se o backend está rodando em http://localhost:3001.</p>}
+            {error && <p className="alert" role="alert">⚠ {error}</p>}
             {result.warnings.length > 0 && (
               <p className="alert alert--warn" role="status">{result.warnings.length} aviso(s) de validação nos dados — veja o console.</p>
             )}
@@ -243,6 +325,17 @@ export default function App() {
       )}
 
       {helpOpen && <ShortcutsHelp onClose={() => setHelpOpen(false)} />}
+
+      {anatomyOpen && <AnatomyModal onClose={handleCloseAnatomy} />}
+
+      {tutorialOpen && (
+        <TutorialModal
+          visitor={visitor}
+          onClose={handleCompleteTutorial}
+          onComplete={handleCompleteTutorial}
+          onSimulateNewUser={handleSimulateNewUser}
+        />
+      )}
     </>
   );
 }

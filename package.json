@@ -11,7 +11,8 @@
     "dev:frontend": "npm run dev --prefix JavaScript/Frontend",
     "build:backend": "npm run build --prefix JavaScript/Backend",
     "build:frontend": "npm run build --prefix JavaScript/Frontend",
-    "build": "npm run build:ttl && npm run build:backend && npm run build:frontend"
+    "build": "npm run build:ttl && npm run build:backend && npm run build:frontend",
+    "test": "node --test tests/*.test.mjs"
   }
 }
 

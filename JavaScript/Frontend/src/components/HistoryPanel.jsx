@@ -49,3 +49,4 @@ export function HistoryPanel({ items, onClose, onOpen, onClear, onRemove }) {
   );
 }
 
+

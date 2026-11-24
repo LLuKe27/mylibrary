@@ -205,3 +205,4 @@ function BookCoverBase({ book, className = '', decorative = false }) {
 
 export const BookCover = memo(BookCoverBase);
 
+

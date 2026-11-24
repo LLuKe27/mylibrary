@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00.000 --> 00:06.000
+Passo 1: Use a barra de busca e os filtros laterais para consultar livros por autoria ou gênero via SPARQL 1.1.
+
+00:06.000 --> 00:12.200
+Passo 2: Clique em qualquer livro para ver sinopse, metadados RDF e Schema.org JSON-LD, ou abra o Leitor Digital.
+
+00:12.200 --> 00:18.200
+Passo 3: Clique em Ouvir para iniciar o Audiobook com narração por voz via Web Speech API e comandos de voz.
+
+00:18.200 --> 00:24.000
+Passo 4: Alterne entre os temas Escuro, Claro e Alto Contraste, use atalhos de teclado e consulte seu histórico.

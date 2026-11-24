@@ -1,6 +1,7 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { usePlayer } from '../context/PlayerContext.jsx';
 import { useFocusTrap } from '../hooks/useFocusTrap.js';
+import { buildBookJsonLd, safeJsonLd } from '../lib/jsonld.js';
 import { BookCover } from './BookCover.jsx';
 import { Icon } from './Icons.jsx';
 import { Reader } from './Reader.jsx';
@@ -13,6 +14,9 @@ export function BookModal({ book, onClose, onRemoveFromHistory, inHistory }) {
   const handleEscape = useCallback(() => (reading ? setReading(false) : onClose()), [reading, onClose]);
   const trapRef = useFocusTrap(true, handleEscape);
 
+  const bookJsonLd = useMemo(() => buildBookJsonLd(book), [book]);
+  const bookJsonLdText = useMemo(() => JSON.stringify(bookJsonLd, null, 2), [bookJsonLd]);
+
   const listen = () => {
     player.play(book);
     onClose();
@@ -22,6 +26,11 @@ export function BookModal({ book, onClose, onRemoveFromHistory, inHistory }) {
 
   return (
     <div className="modal-backdrop" onMouseDown={(e) => e.target === e.currentTarget && onClose()}>
+      <script
+        id="book-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(bookJsonLd) }}
+      />
       <div
         ref={trapRef}
         className={`modal glass-strong ${expanded ? 'is-expanded' : ''} ${reading ? 'is-reading' : ''}`}
@@ -54,29 +63,52 @@ export function BookModal({ book, onClose, onRemoveFromHistory, inHistory }) {
         {reading ? (
           <Reader book={book} onExit={() => setReading(false)} />
         ) : (
-          <div className="modal__body">
+          <div
+            className="modal__body"
+            itemScope
+            itemType="https://schema.org/Book"
+            itemID={book.iri}
+          >
             <div className="modal__cover">
               <BookCover book={book} />
             </div>
             <div className="modal__info">
               <section className="info-card" aria-label="Dados do livro">
-                <p className="eyebrow">{book.genre.label}</p>
-                <h2 id="modal-title" className="modal__title">{book.title}</h2>
+                <p className="eyebrow" itemProp="genre">{book.genre.label}</p>
+                <h2 id="modal-title" className="modal__title" itemProp="name">{book.title}</h2>
                 <dl className="meta-list">
-                  <div><dt>Autoria</dt><dd>{book.author.name}</dd></div>
-                  {book.year && <div><dt>Ano</dt><dd>{book.year}</dd></div>}
-                  {book.pages && <div><dt>Páginas</dt><dd>{book.pages}</dd></div>}
-                  {book.audio && <div><dt>Audiobook</dt><dd>{Math.round(book.audio.duration / 60)} min (demo)</dd></div>}
+                  <div>
+                    <dt>Autoria</dt>
+                    <dd
+                      itemProp="author"
+                      itemScope
+                      itemType="https://schema.org/Person"
+                      itemID={book.author.iri}
+                    >
+                      <span itemProp="name">{book.author.name}</span>
+                    </dd>
+                  </div>
+                  {book.year && <div><dt>Ano</dt><dd itemProp="datePublished">{book.year}</dd></div>}
+                  {book.pages && <div><dt>Páginas</dt><dd itemProp="numberOfPages">{book.pages}</dd></div>}
+                  {book.audio && (
+                    <div itemProp="associatedMedia" itemScope itemType="https://schema.org/AudioObject">
+                      <dt>Audiobook</dt>
+                      <dd>{Math.round(book.audio.duration / 60)} min (Web Speech + WAV)</dd>
+                      <meta itemProp="contentUrl" content={book.audio.url} />
+                      <meta itemProp="encodingFormat" content="audio/wav" />
+                    </div>
+                  )}
                 </dl>
               </section>
               <section className="info-card info-card--synopsis" aria-labelledby="synopsis-title">
                 <h3 id="synopsis-title" className="sr-only">Sinopse</h3>
-                <p>{book.synopsis ?? 'Sinopse indisponível.'}</p>
+                <p itemProp="abstract">{book.synopsis ?? 'Sinopse indisponível.'}</p>
                 <details className="rdf-details">
-                  <summary><Icon.Code width={14} height={14} /> Recurso RDF</summary>
+                  <summary><Icon.Code width={14} height={14} /> Recurso RDF &amp; JSON-LD</summary>
                   <code>{book.iri}</code>
                   <code>dct:creator → {book.author.iri}</code>
                   <code>schema:genre → {book.genre.iri}</code>
+                  <pre className="jsonld-preview"><code>{bookJsonLdText}</code></pre>
                 </details>
               </section>
               <div className="segmented" role="group" aria-label="Ações do livro">
@@ -95,4 +127,3 @@ export function BookModal({ book, onClose, onRemoveFromHistory, inHistory }) {
     </div>
   );
 }
-

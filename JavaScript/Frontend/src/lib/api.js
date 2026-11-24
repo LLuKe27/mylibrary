@@ -27,6 +27,15 @@ export const api = {
   addHistory: (bookId, action) => request('/api/history', jsonBody('POST', { bookId, action })),
   removeHistory: (bookId) => request(`/api/history/${encodeURIComponent(bookId)}`, { method: 'DELETE' }),
   clearHistory: () => request('/api/history', { method: 'DELETE' }),
+  visitor: (uid, seen = false) => {
+    const p = new URLSearchParams();
+    if (uid) p.set('uid', uid);
+    if (seen) p.set('seen', '1');
+    const qs = p.toString();
+    return request(`/api/visitor${qs ? `?${qs}` : ''}`);
+  },
+  resetVisitor: () => request('/api/visitor', { method: 'POST' }),
+  completeTutorial: (visitorId) => request('/api/visitor', jsonBody('PATCH', { visitorId })),
   audioUrl: (path) => BASE + path,
 };
 

@@ -21,6 +21,9 @@ dev.log
 .env
 .env*.local
 
+# Estado de visitantes gerado em runtime
+JavaScript/Backend/data/visitors.json
+
 # Sistema Operacional e IDEs
 .DS_Store
 Thumbs.db

@@ -11,6 +11,9 @@
       // Aplica o tema salvo antes da renderização (evita flash).
       try { document.documentElement.dataset.theme = localStorage.getItem('theme') || 'dark'; } catch {}
     </script>
+    <script id="library-jsonld" type="application/ld+json">
+      {"@context":"https://schema.org","@type":["Library","WebApplication"],"@id":"https://biblioteca.grupo9.example/resource/library","name":"My Library — Biblioteca Digital Semântica","description":"Biblioteca Digital Semântica com motor RDF/SPARQL (Oxigraph), capas SVG, leitor digital, audiobook com Web Speech API e acessibilidade.","inLanguage":"pt-BR","applicationCategory":"EducationalApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"Grupo 09 — My Library"},"potentialAction":{"@type":"SearchAction","target":"/?q={search_term_string}","query-input":"required name=search_term_string"}}
+    </script>
   </head>
   <body>
     <div id="root"></div>

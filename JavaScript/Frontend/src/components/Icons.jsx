@@ -61,5 +61,18 @@ export const Icon = {
   Code: (p) => (
     <svg {...base} {...p}><path d="m16 18 6-6-6-6M8 6l-6 6 6 6" /></svg>
   ),
+  Volume: (p) => (
+    <svg {...base} {...p}><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" /><path d="M15.54 8.46a5 5 0 0 1 0 7.07" /><path d="M19.07 4.93a10 10 0 0 1 0 14.14" /></svg>
+  ),
+  VolumeOff: (p) => (
+    <svg {...base} {...p}><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" /><line x1="22" y1="9" x2="16" y2="15" /><line x1="16" y1="9" x2="22" y2="15" /></svg>
+  ),
+  Mic: (p) => (
+    <svg {...base} {...p}><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><line x1="12" y1="19" x2="12" y2="22" /></svg>
+  ),
+  Video: (p) => (
+    <svg {...base} {...p}><rect x="2" y="4" width="20" height="15" rx="3" /><polygon points="10 8.5 16 11.5 10 14.5" fill="currentColor" stroke="none" /></svg>
+  ),
 };
+
 

@@ -1,7 +1,7 @@
-import { forwardRef } from 'react';
+import { forwardRef, memo } from 'react';
 import { Icon } from './Icons.jsx';
 
-function FacetList({ title, items, selected, onToggle, labelKey }) {
+const FacetList = memo(function FacetList({ title, items, selected, onToggle, labelKey }) {
   return (
     <section className="facet glass-soft" aria-labelledby={`facet-${title}`}>
       <h2 id={`facet-${title}`} className="facet__title">{title}</h2>
@@ -22,9 +22,9 @@ function FacetList({ title, items, selected, onToggle, labelKey }) {
       </ul>
     </section>
   );
-}
+});
 
-export const Sidebar = forwardRef(function Sidebar(
+export const Sidebar = memo(forwardRef(function Sidebar(
   { query, onQuery, authors, genres, filters, onToggleAuthor, onToggleGenre, onClear, isOpen, onClose },
   searchRef,
 ) {
@@ -77,5 +77,6 @@ export const Sidebar = forwardRef(function Sidebar(
       </aside>
     </>
   );
-});
+}));
+
 

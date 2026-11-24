@@ -7,6 +7,7 @@ const routes = [
   ['GET', '/api/audio/:id', 'Audiobook simulado (WAV)'],
   ['GET|POST|DELETE', '/api/history', 'Histórico em JSON'],
   ['DELETE', '/api/history/:bookId', 'Remove um livro do histórico'],
+  ['GET|POST|PATCH', '/api/visitor', 'Identificação UUID do visitante e estado do tutorial'],
   ['GET|POST', '/api/sparql', 'Endpoint SPARQL 1.1 somente leitura'],
   ['GET', '/api/export', 'Grafo RDF em Turtle'],
 ];
